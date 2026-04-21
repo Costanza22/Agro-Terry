@@ -12,6 +12,27 @@ Este projeto foi desenvolvido como **trabalho freelancer** para uma **futura sta
 - Disponibilizar canal de contato para captação de clientes e parceiros
 - Servir como base para evolução futura com funcionalidades de IA
 
+## Requisitos Funcionais (cliente)
+
+- Exibir uma página inicial com identidade visual agro, incluindo banner e seções de destaque.
+- Apresentar áreas produtivas/projetos com imagem, categoria, indicador principal e localidade.
+- Disponibilizar página de detalhes da operação modelo com informações resumidas da fazenda.
+- Disponibilizar página de contato com dados comerciais e formulário para captação de leads.
+- Exibir navegação principal entre `Início`, `Áreas Produtivas`, `Operação Modelo` e `Contato`.
+- Utilizar imagens reais de contexto agro (grãos, pecuária, horticultura etc.) em alta qualidade.
+- Exibir logo da marca no cabeçalho e utilizar a mesma identidade como favicon.
+- Garantir versão em português (PT-BR) com textos revisados e consistentes.
+
+## Requisitos Não Funcionais (dev)
+
+- Aplicação desenvolvida em `Next.js` com estrutura `App Router`.
+- Layout responsivo para desktop, tablet e mobile.
+- Código organizado por páginas e componentes reutilizáveis.
+- Arquivos estáticos versionados em `public/` para facilitar manutenção e deploy.
+- Build de produção obrigatoriamente sem erros (`npm run build`).
+- Estilo visual customizado com CSS próprio, preservando compatibilidade com a base Bootstrap.
+- Preparação para evolução futura com backend/API sem reescrita estrutural do frontend.
+
 ## Tecnologias utilizadas
 
 - `Next.js` (App Router)
