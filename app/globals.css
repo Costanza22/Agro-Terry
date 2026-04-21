@@ -87,6 +87,37 @@ footer {
   }
 }
 
+/* Carrossel responsivo no mobile */
+@media (max-width: 767px) {
+  .main-banner .item {
+    background-size: contain !important;
+    background-position: center top !important;
+    background-color: #233326;
+    min-height: 420px;
+    padding: 150px 24px 90px 24px !important;
+  }
+
+  .main-banner .item h2 {
+    width: 100% !important;
+    font-size: 34px !important;
+    line-height: 42px !important;
+  }
+
+  .main-banner .item span.category {
+    margin-bottom: 16px !important;
+  }
+
+  .main-banner .owl-nav {
+    display: none;
+  }
+
+  .main-banner .owl-dots {
+    left: 50% !important;
+    transform: translateX(-50%);
+    bottom: 24px !important;
+  }
+}
+
 /* Reset template CTA style when menu has no dedicated last button */
 .header-area .main-nav .nav li:last-child a {
   background-color: transparent !important;
