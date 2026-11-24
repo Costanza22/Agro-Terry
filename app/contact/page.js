@@ -1,4 +1,7 @@
 import SiteFrame from "@/components/SiteFrame";
+import { getOffer } from "@/lib/payments/config";
+
+export const dynamic = "force-dynamic";
 
 export default function ContactPage() {
   return (
@@ -28,6 +31,11 @@ export default function ContactPage() {
                 Conte o desafio da sua fazenda e nossa equipe monta um plano técnico com foco em produtividade,
                 manejo eficiente e sustentabilidade.
               </p>
+              {getOffer() && (
+                <div className="main-button mt-3">
+                  <a href="/pagamento">Pagar online</a>
+                </div>
+              )}
               <div className="row">
                 <div className="col-lg-12">
                   <div className="item phone">
