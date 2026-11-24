@@ -1,0 +1,121 @@
+.shell {
+  background: #f4f5ec;
+  color: #203626;
+  padding: clamp(2rem, 6vw, 5.5rem) 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  max-width: 1060px;
+  margin: 0 auto;
+  border: 1px solid #dbe4d6;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(30 56 33 / 9%);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 29rem;
+  padding: clamp(1.75rem, 5vw, 3.75rem);
+  background: linear-gradient(180deg, rgb(21 44 28 / 25%), #152c1c 92%),
+    url("/assets/images/banner-01.jpg") center / cover;
+  color: #fff;
+}
+
+.hero h2 {
+  color: inherit;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+.hero p {
+  color: #e6eee1;
+  margin-top: 1rem;
+  max-width: 28ch;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.75rem, 5vw, 3.75rem);
+  min-width: 0;
+}
+
+.panel h3, .panel h4, .contact h3 {
+  color: #203626;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.panel h3, .contact h3 { font-size: clamp(1.35rem, 2.8vw, 1.8rem); }
+.panel p, .contact p { margin-top: .65rem; }
+
+.price {
+  display: block;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -.045em;
+  margin: .35rem 0 1.25rem;
+}
+
+.methods {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.25rem;
+  padding: 0;
+}
+
+.methods li {
+  border-radius: 2rem;
+  background: #eaf1e6;
+  color: #265334;
+  font-size: .85rem;
+  font-weight: 600;
+  padding: .4rem .85rem;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: .8rem 1.15rem;
+  margin-top: 1rem;
+  border: 1px solid #22543a;
+  border-radius: .7rem;
+  background: #22543a;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  text-align: center;
+}
+
+.action:hover, .action:focus-visible {
+  color: #fff;
+  background: #173d29;
+}
+
+.action:focus-visible { outline: 3px solid #4f8138; outline-offset: 3px; }
+.hint { font-size: .88rem; }
+.notice { border-left: 3px solid #a2631d; padding-left: .85rem; }
+.reference code { color: #345944; overflow-wrap: anywhere; }
+
+.contact {
+  margin: 1.5rem 0;
+  padding: 1.4rem;
+  border-radius: 1rem;
+  background: #f0f5eb;
+  border: 1px solid #dbe4d6;
+}
+
+@media (max-width: 767px) {
+  .layout { grid-template-columns: 1fr; }
+  .hero { min-height: 13rem; }
+}

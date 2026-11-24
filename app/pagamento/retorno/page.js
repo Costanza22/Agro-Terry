@@ -1,5 +1,6 @@
-import SiteFrame from "@/components/SiteFrame";
+import PaymentFrame from "@/components/PaymentFrame";
 import { getOrder, orderIdPattern } from "@/lib/payments/orders";
+import styles from "../payment.module.css";
 
 export const dynamic = "force-dynamic";
 export const metadata = {
@@ -9,10 +10,10 @@ export const metadata = {
 };
 
 const messages = {
-  approved: "Pagamento confirmado.",
-  pending: "Aguardando confirmação do pagamento.",
-  rejected: "Pagamento não aprovado.",
-  reversed: "Pagamento estornado ou revertido.",
+  approved: "Pagamento confirmado",
+  pending: "Aguardando confirmação do pagamento",
+  rejected: "Pagamento não aprovado",
+  reversed: "Pagamento estornado ou revertido",
 };
 
 export default async function PaymentReturnPage({ searchParams }) {
@@ -30,22 +31,19 @@ export default async function PaymentReturnPage({ searchParams }) {
     typeof pedido === "string" && orderIdPattern.test(pedido);
 
   return (
-    <SiteFrame>
-      <main className="container py-5">
-        <h2 className="mb-4">Status do pagamento</h2>
-        {order && <h3 className="mb-3">{order.title}</h3>}
-        <p className="mb-3">
-          {unavailable ? "Não foi possível consultar o pedido agora."
-            : order ? messages[order.status] : "Pedido não encontrado."}
-        </p>
-        {retry && (
-          <a className="btn btn-success" href={"/pagamento/retorno?pedido=" + pedido}>
-            Atualizar status
-          </a>
-        )}
-        {order?.status === "rejected" && <a href="/pagamento">Voltar ao pagamento</a>}
-        {order && <p className="mt-3">Referência do pedido <code>{pedido}</code></p>}
-      </main>
-    </SiteFrame>
+    <PaymentFrame title="Status do pagamento" description="Acompanhe a confirmação do seu pedido.">
+      <h3>{unavailable ? "Consulta temporariamente indisponível"
+        : order ? messages[order.status] : "Pedido não encontrado"}</h3>
+      {order && <p>{order.title}</p>}
+      {retry && (
+        <div>
+          <a className={styles.action} href={"/pagamento/retorno?pedido=" + pedido}>Atualizar status</a>
+        </div>
+      )}
+      {order?.status === "rejected" && (
+        <div><a className={styles.action} href="/pagamento">Voltar ao pagamento</a></div>
+      )}
+      {order && <p className={styles.reference}>Referência do pedido <code>{pedido}</code></p>}
+    </PaymentFrame>
   );
 }

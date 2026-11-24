@@ -1,9 +1,12 @@
 import SiteFrame from "@/components/SiteFrame";
 import { getOffer } from "@/lib/payments/config";
+import styles from "@/app/pagamento/payment.module.css";
 
 export const dynamic = "force-dynamic";
 
 export default function ContactPage() {
+  const offer = getOffer();
+
   return (
     <SiteFrame activePage="contact">
       <div className="page-heading header-text">
@@ -31,11 +34,13 @@ export default function ContactPage() {
                 Conte o desafio da sua fazenda e nossa equipe monta um plano técnico com foco em produtividade,
                 manejo eficiente e sustentabilidade.
               </p>
-              {getOffer() && (
-                <div className="main-button mt-3">
-                  <a href="/pagamento">Pagar online</a>
-                </div>
-              )}
+              <section className={styles.contact} aria-labelledby="contact-payment-title">
+                <h3 id="contact-payment-title">Pagamento online</h3>
+                <p>{offer ? "Pague pelo seu serviço com Pix ou cartão." : "Pagamento online indisponível no momento."}</p>
+                <a className={styles.action} href="/pagamento">
+                  {offer ? "Pagar online" : "Ver informações de pagamento"}
+                </a>
+              </section>
               <div className="row">
                 <div className="col-lg-12">
                   <div className="item phone">
